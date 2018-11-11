@@ -106,8 +106,11 @@ public class ServiceImpl implements Service1{
 		 if(today.isBefore(date)) return "Start date is not correct please redefine the policy";
 		 else
 		 {
+			 PolicyTable tab1= dao2.findByPolicyType(policy.getPolicyType());
+				String[] val=tab1.getPolicyId().split("-");
+				policy.setPolicyId(val[0]+"-"+val[1]+"-"+(Integer.parseInt(val[2])+1));
 			 date.plusYears(policy.getDuration());
-			 dao2.save(policy);
+			 dao2.saveAndFlush(policy);
 			double  Maturityamount = (policy.getIntialDeposit()) + (policy.getDuration() * policy.getTermsPerYear() * policy.getTermAmount()) + ((policy.getDuration() * policy.getTermsPerYear() * policy.getTermAmount()) * (policy.getInterest() /100));
 			  return ("The policy has been succesfully updated and the end date for the updated policy is "+ " "+ date.format(dateTimeFormatter)+" "+",it's maturity amount is"+ " "
 +Maturityamount);		 
