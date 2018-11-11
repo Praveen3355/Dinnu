@@ -122,6 +122,11 @@ public class ServiceImpl implements Service1{
 		
 		return dao2.findById(policyId);
 	}
+	@Override
+	public int findNumber(String userid, String var) {
+		
+		return findNumber(userid,var);
+	}
 	
 	
 	

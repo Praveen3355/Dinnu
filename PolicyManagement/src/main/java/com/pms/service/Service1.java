@@ -13,5 +13,6 @@ public interface Service1 {
     String registerPolicy(PolicyTable obj);
     public String save(PolicyTable policy);
     public  Optional<PolicyTable> findById(String policyId);
+    public int findNumber(String userid,String var);
 
 }

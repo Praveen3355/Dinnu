@@ -18,6 +18,8 @@ public interface PolicyDataRepo  extends JpaRepository<PolicyTable, String>  {
     
     @Query("select pt from PolicyTable pt where pt.policyType = :policy order by pt.policyId DESC limit 1 ")
     public PolicyTable findByPolicyType(@Param ("policy") String userid);
+    @Query("select count(uep.policyId) from UserEnrolledPolicy uep where uep.userid=userid and uep.policyId like %:var% ")
+    public int findNumber(@Param ("userid") String userid, @Param("var") String var);
     
     
     
