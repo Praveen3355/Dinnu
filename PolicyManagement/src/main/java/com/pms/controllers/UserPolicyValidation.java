@@ -17,7 +17,7 @@ public class UserPolicyValidation {
 	@Autowired
 	Service1 simple;
 	
-	//@GetMapping(value = "/filter/{userid,policyId}")
+	@GetMapping(value = "/{userid}/{policyId}")
 public boolean UserPolvalidation(@PathVariable("userid") String userid,@PathVariable("policyId") String policyId)
 {
 	

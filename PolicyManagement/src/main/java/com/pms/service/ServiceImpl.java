@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import com.pms.Entities.LoginObject;
 import com.pms.Entities.Mainuser;
 import com.pms.Entities.PolicyTable;
+import com.pms.Entities.UserEnrolledPolicy;
 import com.pms.dao.MainDataRepo;
 import com.pms.dao.PolicyDataRepo;
 @Service
@@ -126,6 +128,11 @@ public class ServiceImpl implements Service1{
 	public int findNumber(String userid, String var) {
 		
 		return findNumber(userid,var);
+	}
+	@Override
+	public List<UserEnrolledPolicy> findByUserId(String userid) {
+		
+		return dao2.findByUserId(userid);
 	}
 	
 	
