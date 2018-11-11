@@ -29,7 +29,7 @@ public class UserPolicyAmountValidation {
 			
 		}
 		UserEnrolledPolicy uep=null;
-		double annual_income=uep.getUser().getSalary()*12;
+		double annual_income=uep.getUser().getSalary();
 		if(sum<=(0.4)*annual_income)
 		{
 			return true;
